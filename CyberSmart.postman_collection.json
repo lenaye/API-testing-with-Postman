@@ -1,0 +1,702 @@
+{
+	"info": {
+		"_postman_id": "0281446d-e34c-4f0f-b678-879856775886",
+		"name": "CyberSmart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pets",
+			"item": [
+				{
+					"name": "FindByStatus",
+					"item": [
+						{
+							"name": "FindByStatus - available",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Date type match the schema\", function (){\r",
+											"  pm.expect(jsonData[0].id).to.be.an(\"number\");\r",
+											"  pm.expect(jsonData[0].category).to.be.an(\"object\");\r",
+											"  pm.expect(jsonData[0].category.name).to.be.a(\"string\");\r",
+											"  pm.expect(jsonData[0].name).to.be.a(\"string\");\r",
+											"  pm.expect(jsonData[0].tags).to.be.an(\"array\");\r",
+											"  pm.expect(jsonData[0].status).to.be.a(\"string\");\r",
+											"});\r",
+											"\r",
+											"tests[\"No of pets: \" + jsonData.length] = true;\r",
+											"\r",
+											"pm.test(\"Total no of pets more than 500\", function () {\r",
+											"    pm.expect(jsonData.length).to.be.greaterThan(500);\r",
+											"});\r",
+											"\r",
+											"//Loop through each pet to check property of Status\r",
+											"jsonData.forEach(function(pet) {\r",
+											"    // checking if the pet has a property named \"status\"\r",
+											"    if(pet.hasOwnProperty(\"status\")) {\r",
+											"        // test if the status is available for all pets\r",
+											"        pm.test(\"Status= available\", function () {\r",
+											"            pm.expect(pet.status).to.eql(\"available\");\r",
+											"        });\r",
+											"    } \r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}pet/findByStatus?status=available",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "available"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FindByStatus - sold",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Date type match the scehema\", function (){\r",
+											"  pm.expect(jsonData[0].id).to.be.an(\"number\");\r",
+											"  pm.expect(jsonData[0].category).to.be.an(\"object\");\r",
+											"  pm.expect(jsonData[0].category.name).to.be.a(\"string\");\r",
+											"  pm.expect(jsonData[0].name).to.be.a(\"string\");\r",
+											"  pm.expect(jsonData[0].tags).to.be.an(\"array\");\r",
+											"  pm.expect(jsonData[0].status).to.be.a(\"string\");\r",
+											"});\r",
+											"\r",
+											"//Loop through each pet to check property of Status\r",
+											"jsonData.forEach(function(pet) {\r",
+											"    // checking if the pet has a property named \"status\"\r",
+											"    if(pet.hasOwnProperty(\"status\")) {\r",
+											"        // test if the status is available for all pets\r",
+											"        pm.test(\"Status = sold\", function () {\r",
+											"            pm.expect(pet.status).to.eql(\"sold\");\r",
+											"        });\r",
+											"    } \r",
+											"});\r",
+											"\r",
+											"tests[\"No of pets sold: \" + jsonData.length] = true;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}pet/findByStatus?status=sold",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "sold"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FindByStatus - pending",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Date type match the scehema\", function (){\r",
+											"  pm.expect(jsonData[0].id).to.be.an(\"number\");\r",
+											"  pm.expect(jsonData[0].category).to.be.an(\"object\");\r",
+											"  pm.expect(jsonData[0].category.name).to.be.a(\"string\");\r",
+											"  pm.expect(jsonData[0].name).to.be.a(\"string\");\r",
+											"  pm.expect(jsonData[0].tags).to.be.an(\"array\");\r",
+											"  pm.expect(jsonData[0].status).to.be.a(\"string\");\r",
+											"});\r",
+											"\r",
+											"//Loop through each pet to check property of Status\r",
+											"jsonData.forEach(function(pet) {\r",
+											"    // checking if the pet has a property named \"status\"\r",
+											"    if(pet.hasOwnProperty(\"status\")) {\r",
+											"        // test if the status is available for all pets\r",
+											"        pm.test(\"Status = pending\", function () {\r",
+											"            pm.expect(pet.status).to.eql(\"pending\");\r",
+											"        });\r",
+											"    } \r",
+											"});\r",
+											"\r",
+											"tests[\"No of pets sold: \" + jsonData.length] = true;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}pet/findByStatus?status=pending",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "pending"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FindByStatus - invalid status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}pet/findByStatus?status=banana",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										"findByStatus"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "banana"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Add a new pet",
+					"item": [
+						{
+							"name": "Add a new pet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Corect category name returned\", function () {\r",
+											"    pm.expect(jsonData.category.name).to.eql(\"Terrier\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct pet name returned\", function () {\r",
+											"    pm.expect(jsonData.name).to.eql(\"Maxi\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct photo URL returned\", function () {\r",
+											"    pm.expect(jsonData.photoUrls[0]).to.eql(\"https://www.thesprucepets.com/thmb/MFsTgJGoYjjhpLz66NO8Fp-8JxE=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Westie-74f76b3f57e643639d67298018374e39.jpg\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct tag name returned\", function () {\r",
+											"    pm.expect(jsonData.tags[0].name).to.eql(\"Maxi tag\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct Status returned\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"available\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"Terrier\"\r\n  },\r\n  \"name\": \"Maxi\",\r\n  \"photoUrls\": [\r\n    \"https://www.thesprucepets.com/thmb/MFsTgJGoYjjhpLz66NO8Fp-8JxE=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Westie-74f76b3f57e643639d67298018374e39.jpg\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"Maxi tag\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{swagger_path}}pet/",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Find Pet by Id",
+					"item": [
+						{
+							"name": "Find pet by Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Corect category name returned\", function () {\r",
+											"    pm.expect(jsonData.category.name).to.eql(\"Terrier\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct pet name returned\", function () {\r",
+											"    pm.expect(jsonData.name).to.eql(\"Maxi\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct photo URL returned\", function () {\r",
+											"    pm.expect(jsonData.photoUrls[0]).to.eql(\"https://www.thesprucepets.com/thmb/MFsTgJGoYjjhpLz66NO8Fp-8JxE=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Westie-74f76b3f57e643639d67298018374e39.jpg\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct tag name returned\", function () {\r",
+											"    pm.expect(jsonData.tags[0].name).to.eql(\"Maxi tag\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Correct Status returned\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"available\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}pet/9222968140497199263",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										"9222968140497199263"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by Id -pet not found",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Pet not found\", function () {\r",
+											"    pm.expect(jsonData.code).to.eql(1);\r",
+											"    pm.expect(jsonData.type).to.eql(\"error\");  \r",
+											"    pm.expect(jsonData.message).to.eql(\"Pet not found\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}pet/1234567890",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										"1234567890"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find pet by Id -long pet Id (Should not fail?)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Pet not found\", function () {\r",
+											"    pm.expect(jsonData.code).to.eql(404);\r",
+											"    pm.expect(jsonData.type).to.eql(\"unknown\");  \r",
+											"    pm.expect(jsonData.message).to.include(\"java.lang.NumberFormatException\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}pet/12345671234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890890",
+									"host": [
+										"{{swagger_path}}pet"
+									],
+									"path": [
+										"12345671234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890890"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add new user",
+					"item": [
+						{
+							"name": "Add a new user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"User added successfully\", function () {\r",
+											"    pm.expect(jsonData.code).to.eql(200);\r",
+											"    pm.expect(jsonData.type).to.eql(\"unknown\");  \r",
+											"    pm.expect(jsonData.message).to.be.a(\"string\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"jbond\",\r\n  \"firstName\": \"James\",\r\n  \"lastName\": \"Bond\",\r\n  \"email\": \"jb@mi6.gov.uk\",\r\n  \"password\": \"5hak3n!St1rred\",\r\n  \"phone\": \"07007007007\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{swagger_path}}user",
+									"host": [
+										"{{swagger_path}}user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a new user without username",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"firstName\": \"Harry\",\r\n  \"lastName\": \"Potter\",\r\n  \"email\": \"harry@hogwarts.magic.com\",\r\n  \"password\": \"hogw0rt5\",\r\n  \"phone\": \"0737637493\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{swagger_path}}user",
+									"host": [
+										"{{swagger_path}}user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a new user without password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"nopswd\",\r\n  \"firstName\": \"James\",\r\n  \"lastName\": \"Bond\",\r\n  \"email\": \"jb@mi6.gov.uk\",\r\n  \"phone\": \"07007007007\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{swagger_path}}user",
+									"host": [
+										"{{swagger_path}}user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a new user without email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"noemail\",\r\n  \"firstName\": \"James\",\r\n  \"lastName\": \"Bond\",\r\n  \"password\": \"5hak3n!St1rred\",\r\n  \"phone\": \"07007007007\",\r\n  \"userStatus\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{swagger_path}}user",
+									"host": [
+										"{{swagger_path}}user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get User",
+					"item": [
+						{
+							"name": "Get user by Username",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Id is valid\", function () {\r",
+											"    let id = jsonData.id;\r",
+											"    pm.expect(id).to.be.a(\"number\");\r",
+											"    pm.expect(id).to.be.greaterThan(0);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"User details matched\", function () {\r",
+											"    pm.expect(jsonData.firstName).to.eql(\"James\");\r",
+											"    pm.expect(jsonData.lastName).to.eql(\"Bond\");  \r",
+											"    pm.expect(jsonData.email).to.eql(\"jb@mi6.gov.uk\");\r",
+											"    pm.expect(jsonData.password).to.eql(\"5hak3n!St1rred\");\r",
+											"    pm.expect(jsonData.phone).to.eql(\"07007007007\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}user/jbond",
+									"host": [
+										"{{swagger_path}}user"
+									],
+									"path": [
+										"jbond"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get user - Invalid username",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"User not found\", function () {\r",
+											"    pm.expect(jsonData.code).to.eql(1);\r",
+											"    pm.expect(jsonData.type).to.eql(\"error\");  \r",
+											"    pm.expect(jsonData.message).to.eql(\"User not found\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{swagger_path}}user/nosuchperson",
+									"host": [
+										"{{swagger_path}}user"
+									],
+									"path": [
+										"nosuchperson"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update user details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"User details updated\", function () {\r",
+									"    pm.expect(jsonData.code).to.eql(200);\r",
+									"    pm.expect(jsonData.type).to.eql(\"unknown\");  \r",
+									"    pm.expect(jsonData.message).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 3527858756888,\r\n  \"username\": \"newuser1\",\r\n  \"firstName\": \"Michael\",\r\n  \"lastName\": \"Jones\",\r\n  \"email\": \"mj@somewhere.com\",\r\n  \"password\": \"Pa55w0rd\",\r\n  \"phone\": \"07948 4162713\",\r\n  \"userStatus\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{swagger_path}}user/nobody",
+							"host": [
+								"{{swagger_path}}user"
+							],
+							"path": [
+								"nobody"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
