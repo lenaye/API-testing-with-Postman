@@ -26,10 +26,11 @@ Each test can be manually executed by following the step-by-step description and
 There are created using Postman API tool, available from: https://www.postman.com/downloads/
 
 ## Installation and Set Up
-1. Download and install the app to your local machine.
-2. Once installed, start up Postman and import the test cases file CyberSmart.postman_collection.json, using File-Import menu option.
-3. Likewise, import the environment file CyberSmart.postman_environment.json, using the File-Import menu.
-4. The test case collection CyberSmart will appear under the Collections group, and the environment settings CyberSmart will apppear under the Environments group.
+1. Clone the repo: `https://github.com/lenaye/cyberSmartChallenge`
+2. Download and install the Postman app to your local machine.
+3. Once installed, start up Postman and import the test cases file CyberSmart.postman_collection.json, using File-Import menu option.
+4. Likewise, import the environment file CyberSmart.postman_environment.json, using the File-Import menu.
+5. The test case collection CyberSmart will appear under the Collections group, and the environment settings CyberSmart will apppear under the Environments group.
 
 ## Descriptions of the Postman test case Collection
 
