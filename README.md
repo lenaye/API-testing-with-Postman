@@ -65,14 +65,14 @@ Then simply hit the button Run CyberSmart to start the test execution.
 5. The Swagger UI showed different response codes for each endpoint, i.e. 200, 400, and 404, but I was unable to get a 400 response in most cases when I supplied an invalid Id in the request. In such cases only 404 (Pet not found or User not found) is returned.
 
 6. There appear to be no validation on checking the mandatory parameters in POST /pet endpoint when adding a new pet. According to the model, the name and photoUrls are mandatory fields (indicated by red asterisks), i.e.
-   `Pet{
-       id	integer($int64)
-       category	Category{
-                   id	integer($int64)
-                   name	string
-                   }   
-       name*	    string
-                   example: doggie
+   `Pet{  
+       id	integer($int64)  
+       category	Category{  
+                   id	integer($int64)  
+                   name	string  
+                   }  
+       name*	    string  
+                   example: doggie  
        photoUrls*	[
                    xml: OrderedMap { "wrapped": true }
                    string
