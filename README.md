@@ -52,6 +52,9 @@ A Runner tab will be displayed along with the list of tests in the collection al
 
 Then simply hit the button Run CyberSmart to start the test execution.
 
+Ideally, in a Continuous Integration environment, Postman tests should be run with a command-line tool such as newman (available from https://www.npmjs.com/package/newman) and execute as part of the built process. The above example tests can then be executed with the following command:
+`newman run CyberSmart.postman_collection.json -e CyberSmart.postman_environment.json`
+
 ## Notes & Observations
 1. The data appears to be unstable and changing quite frequently. This makes running repeated automated tests difficult as they keep on failing.
 
