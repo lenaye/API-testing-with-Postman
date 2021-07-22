@@ -29,14 +29,14 @@ The Postman collection consists of 2 groups of tests: Pets and Users. Each group
 
 
 ## Running the tests (from Postman)
-To run the tests, simply select ... next to the collection name CyberSmart and choose Run collection.
+To run the tests, simply select ... next to the collection name PetstoreAPI and choose Run collection.
 
 A Runner tab will be displayed along with the list of tests in the collection all preselected for execution. Optionally, each test can be de-selected or selected at this state prior to execution.
 
-Then simply hit the button Run CyberSmart to start the test execution.
+Then simply hit the button Run PetstoreAPI to start the test execution.
 
 Ideally, in a Continuous Integration environment, Postman tests should be run with a command-line tool such as newman (available from https://www.npmjs.com/package/newman) and execute as part of the built process. The above example tests can then be executed with the following command:
-`newman run CyberSmart.postman_collection.json -e CyberSmart.postman_environment.json`
+`newman run PetstoreAPI.postman_collection.json -e PetstoreAPIEnv.postman_environment.json`
 
 ## A few issues with the API
 Since this is an open and publi API without authentication, the data that it returns is not always of the best quality. A few points to note:
