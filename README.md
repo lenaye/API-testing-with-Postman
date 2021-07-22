@@ -11,9 +11,9 @@ The Postman API tool is available from: https://www.postman.com/downloads/
 ## Installation and Set Up
 1. Clone the repo.
 2. Download and install the Postman app to your local machine.
-3. Once installed, start up Postman and import the test cases file PetStoreAPI.postman_collection.json, using File-Import menu option.
-4. Likewise, import the environment file PetStoreAPI.postman_environment.json, using the File-Import menu.
-5. The test case collection CyberSmart will appear under the Collections group, and the environment settings CyberSmart will apppear under the Environments group.
+3. Once installed, start up Postman and import the test cases file ```PetStoreAPI.postman_collection.json```, using File-Import menu option.
+4. Likewise, import the environment file ```PetStoreAPI.postman_environment.json```, using the File-Import menu.
+5. The test case collection will appear under the Collections group, and the environment settings CyberSmart will apppear under the Environments group.
 
 ## Descriptions of the Postman test case Collection
 
