@@ -28,12 +28,14 @@ The Postman collection consists of 2 groups of tests: Pets and Users. Each group
   * Get user
 
 
-## Running the tests (from Postman)
+## Running the tests from Postman
 To run the tests, simply select ... next to the collection name PetstoreAPI and choose Run collection.
 
 A Runner tab will be displayed along with the list of tests in the collection all preselected for execution. Optionally, each test can be de-selected or selected at this state prior to execution.
 
 Then simply hit the button Run PetstoreAPI to start the test execution.
+
+## Running the test via command line (newman)
 
 Ideally, in a Continuous Integration environment, Postman tests should be run with a command-line tool such as newman (available from https://www.npmjs.com/package/newman) and execute as part of the built process. The above example tests can then be executed with the following command:
 `newman run PetstoreAPI.postman_collection.json -e PetstoreAPIEnv.postman_environment.json`
