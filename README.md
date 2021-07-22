@@ -38,7 +38,7 @@ Then simply hit the button Run CyberSmart to start the test execution.
 Ideally, in a Continuous Integration environment, Postman tests should be run with a command-line tool such as newman (available from https://www.npmjs.com/package/newman) and execute as part of the built process. The above example tests can then be executed with the following command:
 `newman run CyberSmart.postman_collection.json -e CyberSmart.postman_environment.json`
 
-## A few issues wit the API
+## A few issues with the API
 Since this is an open and publi API without authentication, the data that it returns is not always of the best quality. A few points to note:
 
 1. The data appears to be unstable and changing quite frequently. This makes run reliable and repeatable automated tests difficult as they tend to fail now and then.
@@ -52,35 +52,6 @@ It is possible to add new pets using POST /pet endpoint using a status of 'happy
 
 5. The Swagger UI showed different response codes for each endpoint, i.e. 200, 400, and 404, but it will return a 400 response in most cases when you supply an invalid Id in the request. In such cases only 404 (Pet not found or User not found) is returned.
 
-6. There appear to be no validation on checking the mandatory parameters in POST /pet endpoint when adding a new pet. According to the model, the name and photoUrls are mandatory fields (indicated by red asterisks), i.e.
-   `Pet{  
-       id	integer($int64)  
-       category	Category{  
-                   id	integer($int64)  
-                   name	string  
-                   }  
-       name*	    string  
-                   example: doggie  
-       photoUrls*	[
-                   xml: OrderedMap { "wrapped": true }
-                   string
-                   xml: OrderedMap { "name": "photoUrl" }
-                   xml:
-                       name: photoUrl]
-       tags	    [
-                   xml: OrderedMap { "wrapped": true }
-                   Tag {
-                       id	integer($int64)
-                       name	string
-                   }]
-       status	    string
-                   pet status in the store
-                   Enum:
-                   [ available, pending, sold ]
-   }`
-
-
-   
 
 
 
