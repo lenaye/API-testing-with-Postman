@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "0281446d-e34c-4f0f-b678-879856775886",
-		"name": "CyberSmart",
+		"name": "PetstoreAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
